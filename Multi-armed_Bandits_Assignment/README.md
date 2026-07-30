@@ -15,6 +15,20 @@
 ├── requirements.txt
 
 └── README.md
+
+
+ENVIRONMENT: 
+
+bandit.py
+implements the 10-armed bandit environment by generating the true reward distribution for each arm and returning a stochastic reward whenever an arm is selected.
+That is its only responsibility. Everything related to learning and decision-making happens in the algorithm files (epsilon_greedy.py, optimistic_greedy.py, and ucb.py).
+
+COORDINATOR:
+
+experiments.py 
+is the coordinator of the project: it creates the environment and agents, runs the simulations for the required number of runs and steps, collects and averages the rewards, compares the algorithms, and generates the plots required for submission.
+
+
  
  
  Member 1 : 
