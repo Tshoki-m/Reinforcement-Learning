@@ -10,11 +10,7 @@
 
 ├── ucb.py
 
-├── experiments.py
-
-├── plot_results.py
-
-├── main.py
+├── experiments.py (plots included)
 
 ├── requirements.txt
 
