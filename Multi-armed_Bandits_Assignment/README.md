@@ -1,6 +1,20 @@
  PLAN
 
- Member 1 – ε-Greedy
+ RL_Assignment/
+│
+├── bandit.py
+├── epsilon_greedy.py
+├── optimistic_greedy.py
+├── ucb.py
+├── experiments.py
+├── plot_results.py
+├── main.py
+└── README.md
+ 
+ 
+ Member 1 : 
+ 
+ ε-Greedy
 
 Responsible for:
 Implementing the ε-greedy algorithm.
@@ -14,7 +28,10 @@ Reward data for all ε values.
 Brief explanation of how ε affects exploration.
 
 
-Member 2 – Greedy with Optimistic Initialization
+
+Member 2 
+
+Greedy with Optimistic Initialization
 
 Responsible for:
 Implementing the optimistic greedy algorithm.
@@ -33,7 +50,9 @@ Reward data for different Q
 Brief explanation of optimistic initialization.
 
 
-Member 3 – UCB + Integration
+Member 3 
+
+UCB + Integration
 
 Responsible for:
 Implementing the UCB algorithm.
