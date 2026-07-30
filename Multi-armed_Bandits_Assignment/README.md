@@ -21,6 +21,12 @@
  
  ε-Greedy
 
+epsilon_greedy.py Needs to contain:
+
+class EpsilonGreedyAgent:
+select_action()
+update()
+
 Responsible for:
 Implementing the ε-greedy algorithm.
 Using ε = 0.1 for the required plot.
@@ -37,6 +43,12 @@ Brief explanation of how ε affects exploration.
 Member 2 
 
 Greedy with Optimistic Initialization
+
+optimistic_greedy.py needs to contain
+
+class OptimisticGreedyAgent:
+select_action()
+update()
 
 Responsible for:
 Implementing the optimistic greedy algorithm.
@@ -57,31 +69,37 @@ Brief explanation of optimistic initialization.
 
 Member 3 
 
-UCB + Integration
+ucb.py needs to contain
+class UCBAgent:
+select_action()
+update()
+
 
 Responsible for:
 Implementing the UCB algorithm.
 Using c=2 for the required plot.
 Running experiments with different c values (e.g., 0.5, 1, 2, 5).
-Combining all results into the required figures.
-Producing the final submission.
 
 Deliverables:
 UCB implementation.
 Reward data for different c.
-Final graphs.
-Merge all code into one project.
+
 
 
 Shared Components:
 
 Multi-Armed Bandit Environment:
 One person can write it , but everyone uses the exact same file:
-bandit.py
 
+bandit.py
 contains:
 Generate the 10 arms.
 Generate the true means.
 pull(action) method.
 
-This file should be completed first and shared with everyone.
+
+experiments.py
+Final graphs.
+
+
+Merge all code into one project.
