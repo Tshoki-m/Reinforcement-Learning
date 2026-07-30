@@ -1,14 +1,23 @@
  PLAN
 
  RL_Assignment/
-│
+
 ├── bandit.py
+
 ├── epsilon_greedy.py
+
 ├── optimistic_greedy.py
+
 ├── ucb.py
+
 ├── experiments.py
+
 ├── plot_results.py
+
 ├── main.py
+
+├── requirements.txt
+
 └── README.md
  
  
