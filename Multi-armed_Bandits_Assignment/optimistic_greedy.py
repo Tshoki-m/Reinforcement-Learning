@@ -26,15 +26,15 @@ class OptimisticGreedyAgent:
         Optimistic initial value for all action-value estimates.
     """
 
-    def __init__(self, k=10, Q1=5.0):
-        self.k = k
-        self.Q1 = Q1
+    def __init__(self, num_actions=10, initial_value=5.0):
+        self.k = num_actions
+        self.Q1 = initial_value
 
         # Action-value estimates — start optimistically high
-        self.Q = np.full(k, Q1, dtype=float)
+        self.Q = np.full(self.k, self.Q1, dtype=float)
 
         # Count of how many times each action has been taken
-        self.N = np.zeros(k, dtype=int)
+        self.N = np.zeros(self.k, dtype=int)
 
     def select_action(self):
         """

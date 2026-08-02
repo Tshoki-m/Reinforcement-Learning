@@ -74,8 +74,8 @@ def run_optimistic_greedy(initial_value=5):
         bandit = Bandit(NUM_ARMS)
 
         agent = OptimisticGreedyAgent(
-             k=NUM_ARMS,
-            Q1=initial_value
+            num_actions=NUM_ARMS,
+            initial_value=initial_value
         )
 
 
