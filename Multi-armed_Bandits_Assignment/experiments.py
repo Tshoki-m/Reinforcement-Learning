@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 from bandit import Bandit
 
-from e_greedy import e_greedy
+from epsilon_greedy import EpsilonGreedyAgent
 from optimistic_greedy import OptimisticGreedyAgent
 from ucb import UCBAgent
 
@@ -41,7 +41,7 @@ def run_epsilon_greedy(epsilon=0.1):
 
         bandit = Bandit(NUM_ARMS)
 
-        agent = e_greedy(
+        agent = EpsilonGreedyAgent(
             num_actions=NUM_ARMS,
             epsilon=epsilon
         )
