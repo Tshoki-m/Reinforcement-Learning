@@ -10,7 +10,7 @@ Epsilon-Greedy agent.
 - Updates action-value estimates using incremental sample averages.
 """
 
-import numpy as np
+
 
 
 class EpsilonGreedyAgent:

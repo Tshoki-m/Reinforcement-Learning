@@ -181,7 +181,7 @@ def plot_main_comparison():
 # REQUIRED PLOT 2
 # Hyperparameter comparison
 
-def plot_hyperparameters():
+def plot_epsilon_hyperparameters():
 
 
     plt.figure(figsize=(10,6))
@@ -213,6 +213,53 @@ def plot_hyperparameters():
 
     plt.show()
 
+def plot_optimistic_hyperparameters():
+
+    plt.figure(figsize=(10,6))
+
+    # Different optimistic initial values
+    for initial_value in [0, 2, 5, 10]:
+
+        rewards = run_optimistic_greedy(initial_value)
+
+        plt.plot(
+            rewards,
+            label=f"Q1={initial_value}"
+        )
+
+    plt.xlabel("Steps")
+    plt.ylabel("Average Reward")
+    plt.title(
+        "Optimistic Greedy Hyperparameter Comparison"
+    )
+
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+def plot_ucb_hyperparameters():
+
+    plt.figure(figsize=(10,6))
+
+    # Different exploration parameters
+    for c in [0.5, 1, 2, 5]:
+
+        rewards = run_ucb(c)
+
+        plt.plot(
+            rewards,
+            label=f"c={c}"
+        )
+
+    plt.xlabel("Steps")
+    plt.ylabel("Average Reward")
+    plt.title(
+        "UCB Hyperparameter Comparison"
+    )
+
+    plt.legend()
+    plt.grid()
+    plt.show()
 
 
 # MAIN
@@ -226,7 +273,10 @@ if __name__ == "__main__":
     plot_main_comparison()
 
 
-    plot_hyperparameters()
+    plot_epsilon_hyperparameters()
+    plot_optimistic_hyperparameters()
+    plot_ucb_hyperparameters()
 
+  
 
     print("Finished.")
