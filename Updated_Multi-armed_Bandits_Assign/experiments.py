@@ -14,7 +14,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from bandit import Bandit
-
 from epsilon_greedy import EpsilonGreedyAgent
 from optimistic_greedy import OptimisticGreedyAgent
 from ucb import UCBAgent
@@ -181,84 +180,100 @@ def plot_main_comparison():
 # REQUIRED PLOT 2
 # Hyperparameter comparison
 
-def plot_epsilon_hyperparameters():
+def plot_summary_comparison():
+    """
+    Plot the average reward over the first 1000 steps for
+    ε-greedy, Optimistic Greedy and UCB using different
+    hyperparameter values.
+    """
 
+    # Hyperparameter values
+    epsilon_values = [1/128, 1/64, 1/32, 1/16, 1/8, 1/4]
+    q_values = [1/4, 1/2, 1, 2, 4]
+    c_values = [1/16, 1/8, 1/4, 1/2, 1, 2, 4]
 
-    plt.figure(figsize=(10,6))
+    epsilon_rewards = []
+    optimistic_rewards = []
+    ucb_rewards = []
 
-
-    # ε-greedy values
-
-    for epsilon in [0,0.01,0.1,0.2]:
+    # ε-greedy
+    print("Evaluating ε-greedy...")
+    for epsilon in epsilon_values:
 
         rewards = run_epsilon_greedy(epsilon)
 
-        plt.plot(
-            rewards,
-            label=f"ε={epsilon}"
+        epsilon_rewards.append(
+            np.mean(rewards)
         )
 
+    # Optimistic Greedy
+    print("Evaluating Optimistic Greedy...")
+    for q in q_values:
 
-    plt.xlabel("Steps")
+        rewards = run_optimistic_greedy(initial_value=q)
 
-    plt.ylabel("Average Reward")
-
-    plt.title(
-        "ε-greedy Hyperparameter Comparison"
-    )
-
-    plt.legend()
-
-    plt.grid()
-
-    plt.show()
-
-def plot_optimistic_hyperparameters():
-
-    plt.figure(figsize=(10,6))
-
-    # Different optimistic initial values
-    for initial_value in [0, 2, 5, 10]:
-
-        rewards = run_optimistic_greedy(initial_value)
-
-        plt.plot(
-            rewards,
-            label=f"Q1={initial_value}"
+        optimistic_rewards.append(
+            np.mean(rewards)
         )
 
-    plt.xlabel("Steps")
-    plt.ylabel("Average Reward")
-    plt.title(
-        "Optimistic Greedy Hyperparameter Comparison"
-    )
-
-    plt.legend()
-    plt.grid()
-    plt.show()
-
-def plot_ucb_hyperparameters():
-
-    plt.figure(figsize=(10,6))
-
-    # Different exploration parameters
-    for c in [0.5, 1, 2, 5]:
+    # UCB
+    print("Evaluating UCB...")
+    for c in c_values:
 
         rewards = run_ucb(c)
 
-        plt.plot(
-            rewards,
-            label=f"c={c}"
+        ucb_rewards.append(
+            np.mean(rewards)
         )
 
-    plt.xlabel("Steps")
-    plt.ylabel("Average Reward")
-    plt.title(
-        "UCB Hyperparameter Comparison"
+    # Plot
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(
+        epsilon_values,
+        epsilon_rewards,
+        marker='o',
+        linewidth=2,
+        label='ε-greedy'
     )
 
+    plt.plot(
+        q_values,
+        optimistic_rewards,
+        marker='s',
+        linewidth=2,
+        label='Optimistic Greedy'
+    )
+
+    plt.plot(
+        c_values,
+        ucb_rewards,
+        marker='^',
+        linewidth=2,
+        label='UCB'
+    )
+
+    # Logarithmic x-axis (base 2)
+    plt.xscale("log", base=2)
+
+    plt.xticks(
+        [1/128, 1/64, 1/32, 1/16, 1/8, 1/4, 1/2, 1, 2, 4],
+        ["1/128", "1/64", "1/32", "1/16",
+         "1/8", "1/4", "1/2", "1", "2", "4"]
+    )
+
+    plt.xlabel(r'Hyperparameter ($\epsilon$, $Q_1$, $c$)')
+    plt.ylabel("Average Reward over First 1000 Steps")
+    plt.title("Summary Comparison of Multi-Armed Bandit Algorithms")
+
+    plt.grid(True)
     plt.legend()
-    plt.grid()
+
+    plt.tight_layout()
+
+    # Save figure
+    plt.savefig("summary_comparison.png", dpi=300)
+
     plt.show()
 
 
@@ -269,14 +284,7 @@ if __name__ == "__main__":
 
     print("Running experiments...")
 
-
     plot_main_comparison()
-
-
-    plot_epsilon_hyperparameters()
-    plot_optimistic_hyperparameters()
-    plot_ucb_hyperparameters()
-
-  
+    plot_summary_comparison()
 
     print("Finished.")
