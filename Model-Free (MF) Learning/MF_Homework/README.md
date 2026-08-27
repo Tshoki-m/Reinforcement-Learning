@@ -3,18 +3,27 @@
               HOMEWORK
                    │
        ┌───────────┼───────────┐
+       
        ↓           ↓           ↓
+       
    MEMBER 1     MEMBER 2     MEMBER 3
    Algorithm    Animation    Statistics
+   
        │           │           │
+       
    SARSA(λ)      200 frames   100 runs
    E(s,a)        3 heatmaps   mean return
    ε-greedy      video        variance
+   
        │           │           │
+       
        └───────────┼───────────┘
+       
                    ↓
+                   
              FINAL REVIEW
               ALL 3 MEMBERS
+              
 
 
 Member 1 — Algorithm
