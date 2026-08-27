@@ -18,10 +18,10 @@ Document the algorithm
 Extra: Member 1 should also help debug the other members' code.
 
 
-   MEMBER 2- Heatmaps + Animation
-   -200 frames
-   -3 heatmaps
-   -video
+MEMBER 2- Heatmaps + Animation
+- 200 frames
+- 3 heatmaps
+- video
 Use the finalized SARSA implementation
 Perform the single run
 Run all three λ values
