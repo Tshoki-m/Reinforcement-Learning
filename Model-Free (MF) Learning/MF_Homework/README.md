@@ -53,18 +53,15 @@ Calculate standard deviation/variance,
 Generate the combined plot,
 Add error bars or shaded variance,
 Save the numerical results,
-Check that the results are reproducible
+Check that the results are reproducible,
+This is computationally heavier than it initially looks.
 
 
 
-
-FINAL REVIEW
-    - ALL 3 MEMBERS
+FINAL REVIEW - ALL 3 MEMBERS
               
 
 
 
 
 
-
-This is computationally heavier than it initially looks.
