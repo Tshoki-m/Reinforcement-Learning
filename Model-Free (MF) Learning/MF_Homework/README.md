@@ -6,21 +6,21 @@
        
        ↓           ↓           ↓
        
-   MEMBER 1     MEMBER 2     MEMBER 3
+   MEMBER 1      MEMBER 2       MEMBER 3
    
-   Algorithm    Animation    Statistics
+   Algorithm     Animation      Statistics
    
-       │           │           │
+       │             │             │
        
-   SARSA(λ)      200 frames   100 runs
+   SARSA(λ)        200 frames   100 runs
    
-   E(s,a)        3 heatmaps   mean return
+   E(s,a)          3 heatmaps   mean return
    
-   ε-greedy      video        variance
+   ε-greedy          video        variance
    
-       │           │           │
+       │             │           │
        
-       └───────────┼───────────┘
+         └───────────┼───────────┘
        
                    ↓
                    
